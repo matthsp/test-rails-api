@@ -10,5 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_010533) do
+  create_table "pokemons", force: :cascade do |t|
+    t.integer "pokemon_number", limit: 2
+    t.string "name", limit: 50, null: false
+    t.string "type_1", limit: 10, null: false
+    t.string "type_2", limit: 10
+    t.integer "total", null: false
+    t.integer "hp", null: false
+    t.integer "attack", null: false
+    t.integer "defense", null: false
+    t.integer "spe_attack", null: false
+    t.integer "spe_defense", null: false
+    t.integer "speed", null: false
+    t.integer "generation", null: false
+    t.boolean "legendary", default: false, null: false
+  end
+
 end
