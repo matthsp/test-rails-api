@@ -67,5 +67,29 @@ class Api::V1::PokemonsControllerTest < ActionDispatch::IntegrationTest
     assert_equal pokemon.attributes, json
   end
 
+  test "should create a new pokemon" do
+    assert_difference('Pokemon.count') do
+      post api_v1_pokemons_url, params: { pokemon_number: 25, name: 'Pikachu', type_1: 'Electric', total: 320, hp: 35, attack: 55, defense: 40, spe_attack: 50, spe_defense: 50, speed: 90, generation: 1, legendary: false }
+    end
 
+    json = JSON.parse(response.body)
+
+    assert_equal 'Pikachu', json['name']
+  end
+
+  test "should update an existing pokemon" do
+    pokemon = Pokemon.create(pokemon_number: 25, name: 'Pikachu', type_1: 'Electric', total: 320, hp: 35, attack: 55, defense: 40, spe_attack: 50, spe_defense: 50, speed: 90, generation: 1, legendary: false)
+
+    patch api_v1_pokemon_url(pokemon), params: { pokemon_number: 25, name: 'Pikachu (updated)', type_1: 'Electric', total: 330, hp: 35, attack: 55, defense: 40, spe_attack: 60, spe_defense: 50, speed: 100, generation: 1, legendary: false }
+
+    json = JSON.parse(response.body)
+
+    pokemon.reload
+
+    assert_equal 'Pikachu (updated)', pokemon.name
+    assert_equal json['name'], pokemon.name
+    assert_equal 330, pokemon.total
+    assert_equal 60, pokemon.spe_attack
+    assert_equal 100, pokemon.speed
+  end
 end
