@@ -1,11 +1,14 @@
-class PokemonsController < ApplicationController
+class Api::V1::PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    limit = params[:limit] || 10
+    offset = params[:offset] || 0
+    @pokemons = Pokemon.limit(limit).offset(offset)
     render json: @pokemons
   end
 
   def show
-    @pokemon = Pokemon.find(params[:id])
+    id = params[:id].to_i
+    @pokemon = Pokemon.find(id)
     render json: @pokemon
   end
 
