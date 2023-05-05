@@ -4,8 +4,51 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+bulbasaur:
+  id: 1
+  pokemon_number: 1
+  name: Bulbasaur
+  type_1: Grass
+  type_2: Poison
+  total: 318
+  hp: 45
+  attack: 49
+  defense: 49
+  spe_attack: 65
+  spe_defense: 65
+  speed: 45
+  generation: 1
+  legendary: false
+
+ivysaur:
+  id: 2
+  pokemon_number: 2
+  name: Ivysaur
+  type_1: Grass
+  type_2: Poison
+  total: 318
+  hp: 45
+  attack: 49
+  defense: 49
+  spe_attack: 65
+  spe_defense: 65
+  speed: 45
+  generation: 1
+  legendary: false
+
+
+venusaur:
+  id: 3
+  pokemon_number: 3
+  name: Venusaur
+  type_1: Grass
+  type_2: Poison
+  total: 318
+  hp: 45
+  attack: 49
+  defense: 49
+  spe_attack: 65
+  spe_defense: 65
+  speed: 45
+  generation: 1
+  legendary: false
